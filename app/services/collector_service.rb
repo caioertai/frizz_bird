@@ -14,8 +14,6 @@ class CollectorService
 
   def collect_category
     collect_page(current_url)
-    # rescue # Add exception
-    # break
   end
 
   def collect_page(url)

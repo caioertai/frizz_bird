@@ -19,7 +19,9 @@ class CollectorService
   end
 
   def collect_page(url)
-    doc = Nokogiri::HTML(HTTParty.get(url), nil, Encoding::UTF_8.to_s)
+    request = HTTParty.get(url)
+    return false unless request.code == 200
+    doc = Nokogiri::HTML(request, nil, Encoding::UTF_8.to_s)
     doc.search('.product-block__title a').map do |element|
       Item.find_or_create_by(path: element.attr('href'))
     end

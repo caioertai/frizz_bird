@@ -6,7 +6,8 @@ class Item < ApplicationRecord
 
   def visit
     request = HTTParty.get("#{ENV['ext_source']}#{path}")
-    return unless request.code == 200
-    update(document: Nokogiri::HTML(request, nil, Encoding::UTF_8.to_s))
+    doc = Nokogiri::HTML(request, nil, Encoding::UTF_8.to_s)
+    return false unless request.code == 200 || doc.at('#product-page').present?
+    update(document: doc)
   end
 end

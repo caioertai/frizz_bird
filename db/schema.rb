@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 20180424030146) do
     t.string "name"
     t.integer "price"
     t.string "ean"
-    t.string "url"
+    t.string "path"
     t.string "factory"
     t.string "brand"
     t.string "document"

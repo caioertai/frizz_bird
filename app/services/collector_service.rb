@@ -21,8 +21,7 @@ class CollectorService
   def collect_page(url)
     doc = Nokogiri::HTML(HTTParty.get(url), nil, Encoding::UTF_8.to_s)
     doc.search('.product-block__title a').map do |element|
-      product = Product.find_or_create_by(path: element.attr('href'))
-      byebug
+      Item.find_or_create_by(path: element.attr('href'))
     end
   end
 

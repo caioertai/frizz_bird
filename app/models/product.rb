@@ -8,4 +8,8 @@ class Product < ApplicationRecord
   belongs_to :item
   has_many :product_ingredients, dependent: :destroy
   has_many :ingredients, through: :product_ingredients
+
+  def parse(*attributes)
+    ParseService.new(self, attributes)
+  end
 end

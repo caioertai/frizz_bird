@@ -2,6 +2,8 @@
 
 # app/models/item.rb
 class Item < ApplicationRecord
+  has_many :products
+
   validates :path, presence: true
 
   def visit
@@ -11,14 +13,17 @@ class Item < ApplicationRecord
     update(document: doc)
   end
 
+  def doc
+    Nokogiri.HTML(document)
+  end
+
   def split_into_products
-    Nokogiri.HTML(document).search('.presentation-offer-block').each do |item|
+    doc.search('.presentation-offer-block').each do |item|
       ean = item.at('.presentation-offer-info__ean strong').text
-      product = Product.find_or_initialize_by(ean: ean)
-      next if product.persisted?
-      product.update(
+      Product.find_or_initialize_by(ean: ean).update(
         name: item.at('.presentation-offer-info__name').text.strip,
-        volume: item.at('.presentation-offer-info__description').text,
+        presentation: item.at('.presentation-offer-info__description').text,
+        path: item.at('.presentation-offer-info__description a')['href'],
         item: self
       )
     end

@@ -39,19 +39,18 @@ class ProductDashboard < Administrate::BaseDashboard
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = [
-    :name,
     :id,
-    :price,
-    :ean,
-    :item,
-    :product_ingredients,
-    :ingredients,
+    :name,
+    :presentation,
     :factory,
     :brand,
+    :ean,
+    :price,
+    :path,
+    :ingredients,
+    :item,
     :created_at,
     :updated_at,
-    :presentation,
-    :path,
   ].freeze
 
   # FORM_ATTRIBUTES

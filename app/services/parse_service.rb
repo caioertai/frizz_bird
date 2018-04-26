@@ -41,10 +41,10 @@ class ParseService
     formula.next_element.text.split(/[,;]|\(and\)/i).each do |ing_str|
       ing_str = normalize_string(ing_str)
 
-      next if product.ingredients.find_by_name(ing_str)
-
-      ingredient = Ingredient.find_by_name(ing_str) || Ingredient.create(name: ing_str)
-      product.product_ingredients << ProductIngredient.new(product: product, ingredient: ingredient)
+      ProductIngredient.create(
+        product: product,
+        ingredient: Ingredient.find_or_create_by(name: ing_str)
+      )
     end
   end
 

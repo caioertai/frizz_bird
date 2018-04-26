@@ -4,4 +4,6 @@
 class ProductIngredient < ApplicationRecord
   belongs_to :product
   belongs_to :ingredient
+
+  validates :product, uniqueness: { scope: :ingredient }
 end

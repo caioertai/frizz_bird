@@ -10,6 +10,7 @@ class Product < ApplicationRecord
   has_many :ingredients, through: :product_ingredients
 
   mount_uploader :photo, PhotoUploader
+  monetize :price_cents
 
   def parse(*attributes)
     ParseService.new(self, attributes)

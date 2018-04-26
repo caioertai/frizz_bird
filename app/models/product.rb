@@ -12,4 +12,10 @@ class Product < ApplicationRecord
   def parse(*attributes)
     ParseService.new(self, attributes)
   end
+
+  (attribute_names + %w[ingredients]).each do |attribute|
+    define_method :"parse_#{attribute}" do
+      ParseService.new(self, [attribute.to_sym])
+    end
+  end
 end

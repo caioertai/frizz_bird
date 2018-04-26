@@ -18,6 +18,13 @@ class ParseService
     product.ean = ean.nil? ? '' : ean.text.strip
   end
 
+  def parse_price(product)
+    list = @presentation.at('.presentation-offer-lists')
+    prices = list.search('.presentation-offer__price-value strong')
+    prices = prices.map { |price| price.text.delete(',').to_i / prices.length }
+    product.price = prices.empty? ? 0 : prices.sum.to_i
+  end
+
   def parse_factory(product)
     factory = @header.at('.cr-icon-factory.product-block__meta-icon')
     product.factory = factory.nil? ? '' : factory.parent.text.strip
@@ -31,7 +38,6 @@ class ParseService
   def parse_ingredients(product)
     formula = @doc.at("#descricao h2:contains('Composição')")
     return if formula.nil?
-    # Spliting on \ breaks things like PEG/PPG/Polybutylene Glycol-8/5/3 Glycerin
     formula.next_element.text.split(/[,;]|\(and\)/i).each do |ing_str|
       ing_str = normalize_string(ing_str)
 

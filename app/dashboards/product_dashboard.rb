@@ -15,14 +15,14 @@ class ProductDashboard < Administrate::BaseDashboard
     product_ingredients: Field::HasMany,
     ingredients: Field::HasMany,
     id: Field::Number,
-    price: Field::Number,
+    price: MoneyField,
     ean: Field::String,
     factory: Field::String,
     brand: Field::String,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
     presentation: Field::String,
-    path: Field::String,
+    path: PathField,
     photo: PhotoField
   }.freeze
 

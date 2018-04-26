@@ -1,4 +1,7 @@
+# frozen_string_literal: true
+
 module Admin
+  # app/controllers/admin/ingredients_controller.rb
   class IngredientsController < Admin::ApplicationController
     # To customize the behavior of this controller,
     # you can overwrite any of the RESTful actions. For example:

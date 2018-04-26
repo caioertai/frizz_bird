@@ -14,6 +14,10 @@ class ParseService
 
   private
 
+  def parse_photo(product)
+    product.remote_photo_url = @presentation.at('figure img')['src']
+  end
+
   def parse_ean(product)
     ean = @presentation.at('.presentation-offer-info__ean strong')
     product.ean = ean.nil? ? '' : ean.text.strip

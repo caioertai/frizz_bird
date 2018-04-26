@@ -18,6 +18,7 @@ gem 'webpacker'
 
 gem 'httparty'
 gem 'administrate'
+gem 'haml-rails'
 
 group :development do
   gem 'web-console', '>= 3.3.0'

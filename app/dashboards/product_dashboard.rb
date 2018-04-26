@@ -31,9 +31,9 @@ class ProductDashboard < Administrate::BaseDashboard
   COLLECTION_ATTRIBUTES = [
     :id,
     :name,
+    :presentation,
     :factory,
     :brand,
-    :ingredients,
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES

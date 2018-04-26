@@ -1,4 +1,6 @@
-require "administrate/base_dashboard"
+# frozen_string_literal: true
+
+require 'administrate/base_dashboard'
 
 class ProductDashboard < Administrate::BaseDashboard
   # ATTRIBUTE_TYPES
@@ -21,6 +23,7 @@ class ProductDashboard < Administrate::BaseDashboard
     updated_at: Field::DateTime,
     presentation: Field::String,
     path: Field::String,
+    photo: PhotoField
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -28,45 +31,46 @@ class ProductDashboard < Administrate::BaseDashboard
   #
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
-  COLLECTION_ATTRIBUTES = [
-    :id,
-    :name,
-    :presentation,
-    :factory,
-    :brand,
+  COLLECTION_ATTRIBUTES = %i[
+    id
+    name
+    presentation
+    factory
+    brand
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
-  SHOW_PAGE_ATTRIBUTES = [
-    :id,
-    :name,
-    :presentation,
-    :factory,
-    :brand,
-    :ean,
-    :price,
-    :path,
-    :ingredients,
-    :item,
-    :created_at,
-    :updated_at,
+  SHOW_PAGE_ATTRIBUTES = %i[
+    id
+    name
+    presentation
+    photo
+    factory
+    brand
+    ean
+    price
+    path
+    ingredients
+    item
+    created_at
+    updated_at
   ].freeze
 
   # FORM_ATTRIBUTES
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
-  FORM_ATTRIBUTES = [
-    :name,
-    :price,
-    :item,
-    :product_ingredients,
-    :ingredients,
-    :ean,
-    :factory,
-    :brand,
-    :presentation,
-    :path,
+  FORM_ATTRIBUTES = %i[
+    name
+    price
+    item
+    product_ingredients
+    ingredients
+    ean
+    factory
+    brand
+    presentation
+    path
   ].freeze
 
   # Overwrite this method to customize how products are displayed

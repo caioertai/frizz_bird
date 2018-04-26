@@ -5,13 +5,18 @@ class ParseService
   def initialize(product, attributes = [])
     @doc = Nokogiri::HTML(product.item.document)
     @header = @doc.search('.product-header__infos').last
-    @presentation = @doc.at("[href='#{product.path}']").ancestors('.presentation-offer-block')
+    @presentation = @doc.at("[href='#{product.path}']")
+                        .ancestors('.presentation-offer-block')
 
     attributes.each { |attribute| send(:"parse_#{attribute}", product) }
     product.save
   end
 
   private
+
+  def parse_photo(product)
+    product.remote_photo_url = @presentation.at('figure img')['src']
+  end
 
   def parse_ean(product)
     ean = @presentation.at('.presentation-offer-info__ean strong')

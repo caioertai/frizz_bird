@@ -18,6 +18,8 @@ gem 'webpacker'
 
 gem 'httparty'
 gem 'administrate'
+gem 'carrierwave', '~> 1.2'
+gem 'cloudinary'
 gem 'haml-rails'
 
 group :development do

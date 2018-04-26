@@ -17,6 +17,7 @@ gem 'uglifier'
 gem 'webpacker'
 
 gem 'httparty'
+gem 'administrate'
 
 group :development do
   gem 'web-console', '>= 3.3.0'

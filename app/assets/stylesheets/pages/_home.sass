@@ -1,1 +1,53 @@
 // Specific CSS for your home-page
+.decorations-box
+  position: relative
+  overflow: hidden
+  height: 101vh
+  display: flex
+  align-items: center
+  justify-content: center
+
+  .bangs
+    position: absolute
+    top: 0
+    width: 20rem
+    left: 0
+
+    &.inverted
+      right: 0
+
+  .frizz
+    position: absolute
+    top: 2rem
+    width: 24rem
+    left: 2rem
+
+    &.inverted
+      right: 2rem
+
+  .frizz-shadow
+    position: absolute
+    top: -5rem
+    width: 40rem
+    left: 2rem
+    opacity: 0.05
+
+    &.inverted
+      right: 2rem
+
+  .inverted
+    transform: rotateY(180deg)
+    left: auto
+
+  .main-container
+    text-align: center
+
+  .logo
+    width: 40rem
+    margin-bottom: 2rem
+
+.top-level-shadow
+  box-shadow: 0 12px 12px rgba(0,0,0,0.6)
+
+.mid-level-shadow
+  box-shadow: 0 6px 6px rgba(0,0,0,0.6)

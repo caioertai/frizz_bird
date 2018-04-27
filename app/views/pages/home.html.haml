@@ -1,2 +1,16 @@
+.decorations-box
+  .frizz-shadow= image_tag 'frizz-shadow'
+  .frizz-shadow.inverted= image_tag 'frizz-shadow'
+  .frizz= image_tag 'frizz'
+  .frizz.inverted= image_tag 'frizz'
+  .bangs= image_tag 'bangs'
+  .bangs.inverted= image_tag 'bangs'
+
+  .main-container
+    = image_tag 'logo', class: 'logo'
+    = form_for :search do |f|
+      = f.text_field :search
+
+
 %h1 Pages#home
 %p Find me in app/views/pages/home.html.erb

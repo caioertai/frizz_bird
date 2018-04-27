@@ -1,25 +1,7 @@
-$degrees: 4deg
-$translation: 5%
-
-@keyframes wind-blown
-  0%
-    transform: skew(-$degrees/4, 0deg) translate(-$translation/4, -$translation/4)
-
-  45%
-    transform: skew($degrees, 0deg) translate($translation, $translation/2)
-
-  100%
-    transform: skew(-$degrees/4, 0deg) translate(-$translation/4, -$translation/4)
-
-.wind-blown-animation
-  animation: wind-blown
-  animation-duration: 8s
-  animation-iteration-count: infinite
-
 .decorations-box
   position: relative
   overflow: hidden
-  height: 101vh
+  min-height: 94vh
   display: flex
   align-items: center
   justify-content: center
@@ -63,8 +45,19 @@ $translation: 5%
     width: 40rem
     margin-bottom: 2rem
 
-.top-level-shadow
-  box-shadow: 0 12px 12px rgba(0,0,0,0.6)
+.usp-box
+  background-color: $dark-pink
+  min-height: 100vh
 
-.mid-level-shadow
-  box-shadow: 0 6px 6px rgba(0,0,0,0.6)
+.scroll-call
+  display: block
+  text-align: center
+
+.scroll-call-arrow
+  border-style: solid
+  border-color: $yellow transparent transparent transparent
+  border-width: 2vh
+  display: inline-block
+  position: relative
+  top: 2vh
+  margin-bottom: 1vh

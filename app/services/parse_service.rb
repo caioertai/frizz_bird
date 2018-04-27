@@ -48,7 +48,7 @@ class ParseService
 
       ProductIngredient.create(
         product: product,
-        ingredient: Ingredient.find_or_create_by(name: ing_str)
+        ingredient: Ingredient.find_or_create_by_name(ing_str)
       )
     end
   end

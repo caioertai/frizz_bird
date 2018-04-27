@@ -5010,6 +5010,10 @@ schema-utils@^0.4.0, schema-utils@^0.4.5:
     ajv "^6.1.0"
     ajv-keywords "^3.1.0"
 
+scroll-js@^1.8.8:
+  version "1.8.8"
+  resolved "https://registry.yarnpkg.com/scroll-js/-/scroll-js-1.8.8.tgz#5e34e93092cba40a9f73b1020b6c154483d0eaae"
+
 scss-tokenizer@^0.2.3:
   version "0.2.3"
   resolved "https://registry.yarnpkg.com/scss-tokenizer/-/scss-tokenizer-0.2.3.tgz#8eb06db9a9723333824d3f5530641149847ce5d1"

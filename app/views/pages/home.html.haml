@@ -12,11 +12,11 @@
   .main-container
     = image_tag 'logo', class: 'logo'
     = form_for :search, method: :get do |f|
-      = f.text_field :query
+      = f.text_field :query, class: 'main-search', placeholder: 'Digite nome ou código de barra do produto'
 
 #usp.usp-box
-  = link_to '#usp', class: 'scroll-call' do
+  = link_to '#usp', class: 'scroll-call scroll-to' do
     .scroll-call-arrow
   .container
-    %h1 Pages#home
-    %p Find me in app/views/pages/home.html.erb
+    %h1 Frizz Bird
+    %p Mais informação em breve

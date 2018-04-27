@@ -1,0 +1,17 @@
+$degrees: 4deg
+$translation: 5%
+
+@keyframes wind-blown
+  0%
+    transform: skew(-$degrees/4, 0deg) translate(-$translation/4, -$translation/4)
+
+  50%
+    transform: skew($degrees, 0deg) translate($translation, $translation/2)
+
+  100%
+    transform: skew(-$degrees/4, 0deg) translate(-$translation/4, -$translation/4)
+
+.wind-blown-animation
+  animation: wind-blown
+  animation-duration: 8s
+  animation-iteration-count: infinite

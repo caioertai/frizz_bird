@@ -1,5 +1,5 @@
 .decorations-box
-  position: relative
+  width: 100%
   overflow: hidden
   min-height: 94vh
   display: flex
@@ -8,12 +8,12 @@
 
   .bangs
     position: absolute
-    top: 0
+    top: -1rem
     width: 20rem
-    left: 0
+    left: -1rem
 
     &.inverted
-      right: 0
+      right: -1rem
 
   .frizz
     position: absolute
@@ -40,6 +40,8 @@
 
   .main-container
     text-align: center
+    position: relative
+    z-index: 99
 
   .logo
     width: 40rem
@@ -61,3 +63,6 @@
   position: relative
   top: 2vh
   margin-bottom: 1vh
+
+.layer
+  width: 100%

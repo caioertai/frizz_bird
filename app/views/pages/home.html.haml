@@ -11,8 +11,8 @@
 
   .main-container
     = image_tag 'logo', class: 'logo'
-    = form_for :search, method: :get do |f|
-      = f.text_field :query, class: 'main-search', placeholder: 'Digite nome ou código de barra do produto'
+    = form_tag products_search_path, method: :get do
+      = text_field_tag :query, params[:query], class: 'main-search', placeholder: 'Digite nome ou código de barra do produto'
 
 #usp.usp-box
   = link_to '#usp', class: 'scroll-call scroll-to' do

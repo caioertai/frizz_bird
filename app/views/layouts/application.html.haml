@@ -1,5 +1,5 @@
 !!!
-%html
+%html{lang: 'pt-BR'}
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
     %meta{:charset => "UTF-8"}/
@@ -8,7 +8,7 @@
     = csrf_meta_tags
     = action_cable_meta_tag
     = stylesheet_link_tag 'application', media: 'all'
-    / Uncomment if you import CSS in app/javascript/packs/application.js
+    = tag(:link, rel: 'manifest', href: asset_path('manifest.json'))
   %body
     = yield
     = javascript_include_tag 'application'

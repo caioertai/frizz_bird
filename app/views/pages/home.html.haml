@@ -1,22 +1,26 @@
 - left_skrollr_data = { '0' => 'opacity: 1; top: 0px; left: 0px', '500' => 'opacity: 0; top: -200px; left: -300px' }
 - right_skrollr_data = { '0' => 'opacity: 1; top: 0px; right: 0px', '500' => 'opacity: 0; top: -200px; right: -300px' }
+- top_skrollr_data = { '0' => 'opacity: 0.05; top: 0px; transform: scale(1)', '500' => 'opacity: 0.02; top: -200px; transform: scale(1.5)' }
+- fade_skrollr_data = { '0' => 'opacity: 1', '50' => 'opacity: 0' }
 
 #landing.decorations-box
-  .frizz-shadow{ data: left_skrollr_data }= image_tag 'frizz-shadow', class: 'wind-blown-animation'
-  .frizz-shadow.inverted{ data: right_skrollr_data }= image_tag 'frizz-shadow', class: 'wind-blown-animation'
-  .frizz{ data: left_skrollr_data }= image_tag 'frizz', class: 'wind-blown-animation'
-  .frizz.inverted{ data: right_skrollr_data }= image_tag 'frizz', class: 'wind-blown-animation'
-  .bangs{ data: left_skrollr_data }= image_tag 'bangs'
-  .bangs.inverted{ data: right_skrollr_data }= image_tag 'bangs'
+  .frizz-shadow{ data: left_skrollr_data }= image_tag 'frizz-shadow', class: 'wind-blown-animation', alt: 'Frizz'
+  .frizz-shadow.inverted{ data: right_skrollr_data }= image_tag 'frizz-shadow', class: 'wind-blown-animation', alt: 'Frizz'
+  .frizz{ data: left_skrollr_data }= image_tag 'frizz', class: 'wind-blown-animation', alt: 'Frizz Shadow'
+  .frizz.inverted{ data: right_skrollr_data }= image_tag 'frizz', class: 'wind-blown-animation', alt: 'Frizz Shadow'
+  .bangs{ data: left_skrollr_data }= image_tag 'bangs', alt: 'Bangs'
+  .bangs.inverted{ data: right_skrollr_data }= image_tag 'bangs', alt: 'Bangs'
 
   .main-container
-    = image_tag 'logo', class: 'logo'
-    = form_for :search, method: :get do |f|
-      = f.text_field :query, class: 'main-search', placeholder: 'Digite nome ou código de barra do produto'
+    = image_tag 'logo', class: 'logo', alt: 'Frizz Bird'
+    = image_tag 'logo-shadow', class: 'logo-shadow', data: top_skrollr_data, alt: 'Frizz Bird Shadow'
+    = form_tag products_search_path, method: :get do
+      = text_field_tag :query, params[:query], class: 'main-search', placeholder: 'Digite nome ou código de barra do produto'
+
+  = link_to '#usp', class: 'scroll-call scroll-to', data: fade_skrollr_data do
+    .scroll-call-arrow{ data: fade_skrollr_data }
 
 #usp.usp-box
-  = link_to '#usp', class: 'scroll-call scroll-to' do
-    .scroll-call-arrow
   .container
-    %h1 Frizz Bird
+    %h2 Frizz Bird
     %p Mais informação em breve

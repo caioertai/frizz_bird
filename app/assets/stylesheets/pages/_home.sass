@@ -1,7 +1,7 @@
 .decorations-box
   position: relative
   overflow: hidden
-  min-height: 94vh
+  min-height: 100vh
   display: flex
   align-items: center
   justify-content: center
@@ -42,10 +42,21 @@
 
   .main-container
     text-align: center
+    position: relative
+    top: -3vh
 
   .logo
     width: 40rem
     margin-bottom: 2rem
+
+  .logo-shadow
+    position: absolute
+    width: 120%
+    top: 0
+    left: 50%
+    z-index: -1
+    margin-left: -60%
+    opacity: 0.05
 
   .main-search
     text-align: center
@@ -59,22 +70,27 @@
     color: #fff
 
     &::placeholder
-      color: rgba(255,255,255,0.8)
+      color: rgba(255,255,255,0.6)
+      font-size: 1.5rem
 
 .usp-box
   background-color: $dark-pink
   min-height: 100vh
   color: $yellow
+  padding-top: 6rem
 
 .scroll-call
-  display: block
   text-align: center
+  background-color: $dark-pink
+  position: absolute
+  bottom: 0
+  width: 100%
 
 .scroll-call-arrow
   border-style: solid
   border-color: $yellow transparent transparent transparent
-  border-width: 2vh
+  border-width: 1.5vh
   display: inline-block
   position: relative
-  top: 2vh
-  margin-bottom: 1vh
+  top: 1.5vh
+  margin-bottom: 0.75vh

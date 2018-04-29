@@ -1,1 +1,11 @@
-Show
+%h2
+  = @product.name
+  %small= @product.presentation
+.float-right= image_tag @product.photo
+%p= @product.factory
+%p= @product.brand
+%p= @product.price.format
+%h3 Ingredientes
+%ul
+  - @product.ingredients.each do |ingredient|
+    %li= ingredient.name

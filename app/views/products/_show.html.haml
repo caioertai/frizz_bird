@@ -1,11 +1,18 @@
-%h2
-  = @product.name
-  %small= @product.presentation
-.float-right= image_tag @product.photo
-%p= @product.factory
-%p= @product.brand
-%p= @product.price.format
-%h3 Ingredientes
-%ul
-  - @product.ingredients.each do |ingredient|
-    %li= ingredient.name
+.circle-border= image_tag @product.photo
+.product-info
+  %h2
+    = @product.name
+    %small= @product.presentation
+  - if @product.factory.present? || @product.brand.present?
+    %ul.list-inline
+      = tag.li icon('fas', 'gem', @product.brand), class: 'list-inline-item' if @product.brand.present?
+      = tag.li icon('fas', 'industry', @product.factory), class: 'list-inline-item' if @product.factory.present?
+  -# %p= @product.price.format
+  - if @product.ingredients.empty?
+    %h3
+      %small Ingredients indisponíveis
+  - else
+    %h3 Ingredientes
+    %ul
+      - @product.ingredients.each do |ingredient|
+        %li= ingredient.name

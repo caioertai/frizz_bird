@@ -13,7 +13,7 @@ class ProductsController < ApplicationController
       @product = Product.find_by_ean(params[:query])
       redirect_to @product
     else
-      redirect_to root_path
+      @items = Item.where('name ILIKE ?', "%#{params[:query]}%").order(name: :ASC)
     end
   end
 end

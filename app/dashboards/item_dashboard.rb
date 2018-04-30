@@ -11,6 +11,7 @@ class ItemDashboard < Administrate::BaseDashboard
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
     products: Field::HasMany,
+    ingredients: Field::HasMany,
     id: Field::Number,
     path: PathField,
     document: Field::String,
@@ -41,6 +42,7 @@ class ItemDashboard < Administrate::BaseDashboard
     brand
     factory
     products
+    ingredients
     id
     path
     created_at

@@ -10,20 +10,16 @@ class ProductDashboard < Administrate::BaseDashboard
   # which determines how the attribute is displayed
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
-    name: Field::String,
-    item: Field::BelongsTo,
-    product_ingredients: Field::HasMany,
-    ingredients: Field::HasMany,
     id: Field::Number,
-    price: MoneyField,
-    ean: Field::String,
-    factory: Field::String,
-    brand: Field::String,
-    created_at: Field::DateTime,
-    updated_at: Field::DateTime,
     presentation: Field::String,
+    photo: PhotoField,
+    ean: Field::String,
+    price: MoneyField,
     path: PathField,
-    photo: PhotoField
+    ingredients: Field::HasMany,
+    item: Field::BelongsTo,
+    created_at: Field::DateTime,
+    updated_at: Field::DateTime
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -34,21 +30,15 @@ class ProductDashboard < Administrate::BaseDashboard
   COLLECTION_ATTRIBUTES = %i[
     id
     photo
-    name
     presentation
-    factory
-    brand
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = %i[
     id
-    name
     presentation
     photo
-    factory
-    brand
     ean
     price
     path
@@ -62,14 +52,11 @@ class ProductDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = %i[
-    name
     price
     item
-    product_ingredients
+    item_ingredients
     ingredients
     ean
-    factory
-    brand
     presentation
     path
   ].freeze

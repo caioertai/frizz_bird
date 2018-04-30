@@ -2,7 +2,10 @@
 
 # app/models/item.rb
 class Item < ApplicationRecord
-  has_many :products
+  has_many :products, dependent: :destroy
+
+  has_many :item_ingredients, dependent: :destroy
+  has_many :ingredients, through: :item_ingredients
 
   validates :path, presence: true
 

@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     resources :ingredients
     resources :items
     resources :products
-    resources :product_ingredients
+    resources :item_ingredients
 
     root to: 'products#index'
   end

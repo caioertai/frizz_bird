@@ -1,21 +1,21 @@
 # frozen_string_literal: true
 
 module Admin
-  # app/controllers/admin/product_ingredients_controller.rb
-  class ProductIngredientsController < Admin::ApplicationController
+  # app/controllers/admin/item_ingredients_controller.rb
+  class ItemIngredientsController < Admin::ApplicationController
     # To customize the behavior of this controller,
     # you can overwrite any of the RESTful actions. For example:
     #
     # def index
     #   super
-    #   @resources = ProductIngredient.
+    #   @resources = ItemIngredient.
     #     page(params[:page]).
     #     per(10)
     # end
 
     # Define a custom finder by overriding the `find_resource` method:
     # def find_resource(param)
-    #   ProductIngredient.find_by!(slug: param)
+    #   ItemIngredient.find_by!(slug: param)
     # end
 
     # See https://administrate-prototype.herokuapp.com/customizing_controller_actions

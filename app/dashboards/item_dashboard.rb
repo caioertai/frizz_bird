@@ -12,10 +12,13 @@ class ItemDashboard < Administrate::BaseDashboard
   ATTRIBUTE_TYPES = {
     products: Field::HasMany,
     id: Field::Number,
-    path: Field::String,
+    path: PathField,
     document: Field::String,
     created_at: Field::DateTime,
-    updated_at: Field::DateTime
+    updated_at: Field::DateTime,
+    name: Field::String,
+    brand: Field::String,
+    factory: Field::String
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -24,14 +27,19 @@ class ItemDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = %i[
-    products
     id
-    path
+    name
+    brand
+    factory
+    products
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = %i[
+    name
+    brand
+    factory
     products
     id
     path
@@ -43,6 +51,9 @@ class ItemDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = %i[
+    name
+    brand
+    factory
     products
     path
   ].freeze

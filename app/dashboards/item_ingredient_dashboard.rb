@@ -2,7 +2,7 @@
 
 require 'administrate/base_dashboard'
 
-class ProductIngredientDashboard < Administrate::BaseDashboard
+class ItemIngredientDashboard < Administrate::BaseDashboard
   # ATTRIBUTE_TYPES
   # a hash that describes the type of each of the model's fields.
   #
@@ -10,7 +10,7 @@ class ProductIngredientDashboard < Administrate::BaseDashboard
   # which determines how the attribute is displayed
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
-    product: Field::BelongsTo,
+    item: Field::BelongsTo,
     ingredient: Field::BelongsTo,
     id: Field::Number,
     created_at: Field::DateTime,
@@ -23,7 +23,7 @@ class ProductIngredientDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = %i[
-    product
+    item
     ingredient
     id
     created_at
@@ -32,7 +32,7 @@ class ProductIngredientDashboard < Administrate::BaseDashboard
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = %i[
-    product
+    item
     ingredient
     id
     created_at
@@ -43,14 +43,14 @@ class ProductIngredientDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = %i[
-    product
+    item
     ingredient
   ].freeze
 
-  # Overwrite this method to customize how product ingredients are displayed
+  # Overwrite this method to customize how item ingredients are displayed
   # across all pages of the admin dashboard.
   #
-  # def display_resource(product_ingredient)
-  #   "ProductIngredient ##{product_ingredient.id}"
+  # def display_resource(item_ingredient)
+  #   "ItemIngredient ##{item_ingredient.id}"
   # end
 end

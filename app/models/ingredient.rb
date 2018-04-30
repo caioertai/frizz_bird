@@ -6,8 +6,10 @@ class Ingredient < ApplicationRecord
 
   belongs_to :alias, optional: true
 
-  has_many :product_ingredients, dependent: :destroy
-  has_many :products, through: :product_ingredients
+  has_many :item_ingredients, dependent: :destroy
+  has_many :items, through: :item_ingredients
+
+  has_many :products, through: :items
 
   after_save :refresh_alias, if: :alias_id_changed?
 

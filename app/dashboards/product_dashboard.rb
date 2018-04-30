@@ -12,7 +12,7 @@ class ProductDashboard < Administrate::BaseDashboard
   ATTRIBUTE_TYPES = {
     name: Field::String,
     item: Field::BelongsTo,
-    product_ingredients: Field::HasMany,
+    item_ingredients: Field::HasMany,
     ingredients: Field::HasMany,
     id: Field::Number,
     price: MoneyField,
@@ -65,7 +65,7 @@ class ProductDashboard < Administrate::BaseDashboard
     name
     price
     item
-    product_ingredients
+    item_ingredients
     ingredients
     ean
     factory

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180426200423) do
+ActiveRecord::Schema.define(version: 20180430032358) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,11 +37,23 @@ ActiveRecord::Schema.define(version: 20180426200423) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "item_ingredients", force: :cascade do |t|
+    t.bigint "item_id"
+    t.bigint "ingredient_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["ingredient_id"], name: "index_item_ingredients_on_ingredient_id"
+    t.index ["item_id"], name: "index_item_ingredients_on_item_id"
+  end
+
   create_table "items", force: :cascade do |t|
     t.string "path"
     t.string "document"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name"
+    t.string "brand"
+    t.string "factory"
   end
 
   create_table "product_ingredients", force: :cascade do |t|
@@ -54,11 +66,8 @@ ActiveRecord::Schema.define(version: 20180426200423) do
   end
 
   create_table "products", force: :cascade do |t|
-    t.string "name"
     t.integer "price"
     t.string "ean"
-    t.string "factory"
-    t.string "brand"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "item_id"
@@ -72,6 +81,8 @@ ActiveRecord::Schema.define(version: 20180426200423) do
 
   add_foreign_key "ingredients", "aliases"
   add_foreign_key "ingredients", "ingredients_aliases", column: "ingredients_aliases_id"
+  add_foreign_key "item_ingredients", "ingredients"
+  add_foreign_key "item_ingredients", "items"
   add_foreign_key "product_ingredients", "ingredients"
   add_foreign_key "product_ingredients", "products"
   add_foreign_key "products", "items"

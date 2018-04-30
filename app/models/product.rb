@@ -6,11 +6,22 @@ class Product < ApplicationRecord
   validates :ean, uniqueness: true, allow_nil: true
 
   belongs_to :item
-  has_many :product_ingredients, dependent: :destroy
-  has_many :ingredients, through: :product_ingredients
+  has_many :ingredients, through: :item
 
   mount_uploader :photo, PhotoUploader
   monetize :price_cents
+
+  def name
+    item.name
+  end
+
+  def brand
+    item.brand
+  end
+
+  def factory
+    item.factory
+  end
 
   def parse(*attributes)
     ParseService.new(self, attributes)

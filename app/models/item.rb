@@ -4,6 +4,9 @@
 class Item < ApplicationRecord
   has_many :products
 
+  has_many :item_ingredients
+  has_many :ingredients, through: :item_ingredients
+
   validates :path, presence: true
 
   def visit

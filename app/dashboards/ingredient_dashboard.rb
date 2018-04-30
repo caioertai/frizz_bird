@@ -10,8 +10,7 @@ class IngredientDashboard < Administrate::BaseDashboard
   # which determines how the attribute is displayed
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
-    item_ingredients: Field::HasMany,
-    products: Field::HasMany,
+    items: Field::HasMany,
     id: Field::Number,
     name: Field::String,
     created_at: Field::DateTime,
@@ -26,16 +25,15 @@ class IngredientDashboard < Administrate::BaseDashboard
   COLLECTION_ATTRIBUTES = %i[
     id
     name
-    products
+    items
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = %i[
-    item_ingredients
-    products
-    id
     name
+    items
+    id
     created_at
     updated_at
   ].freeze
@@ -44,8 +42,7 @@ class IngredientDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = %i[
-    item_ingredients
-    products
+    items
     name
   ].freeze
 

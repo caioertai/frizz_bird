@@ -1,0 +1,5 @@
+.search-info
+  %h2== Resultado da busca por '#{params[:query]}'
+  %ul.grid-list
+    - @items.each do |item|
+      %li= link_to item.name, product_path(item.products.first), remote: true

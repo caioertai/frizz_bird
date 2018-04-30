@@ -1,6 +1,11 @@
 .darkruby-wrapper
-  background-color: $dark-pink
-  
+  background-color: transparentize($dark-pink, 0.6)
+
+.vcentered-wrapper
+  display: flex
+  min-height: 100vh
+  align-items: center
+
 .padded
   padding: 3rem 0
 
@@ -8,7 +13,7 @@
   float: right
   border-radius: 50%
   background-color: #fff
-  border: 0.5rem solid $pink
+  border: 0.5rem solid darken($pink, 6%)
   height: 18.75rem
   width: 18.75rem
   display: flex

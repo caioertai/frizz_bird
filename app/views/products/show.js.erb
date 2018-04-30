@@ -1,5 +1,5 @@
-usp = document.getElementById('product-show')
-usp.parentElement.style.display = 'block'
+usp = document.querySelector('#product .product-show')
+usp.parentElement.style.display = 'flex'
 usp.innerHTML = "<%= j render 'show' %>"
-document.scrollTo(location.href = '#product-show');
+document.scrollTo(location.href = '#product');
 document.setMainLoading(false);

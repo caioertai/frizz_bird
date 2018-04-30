@@ -2,7 +2,6 @@
 
 # app/models/product.rb
 class Product < ApplicationRecord
-  validates :name, presence: true
   validates :ean, uniqueness: true, allow_nil: true
 
   belongs_to :item

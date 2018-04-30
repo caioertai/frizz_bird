@@ -14,8 +14,9 @@
   .main-container
     = image_tag 'logo.svg', class: 'logo', alt: 'Frizz Bird'
     = image_tag 'logo-shadow.svg', class: 'logo-shadow', data: top_skrollr_data, alt: 'Frizz Bird Shadow'
-    = form_tag products_search_path, method: :get, remote: true do
+    = form_tag products_search_path, id: 'product-search', method: :get, remote: true do
       = text_field_tag :query, params[:query], :'aria-label' => 'Digite nome ou código de barra do produto', class: 'main-search', placeholder: 'Digite nome ou código de barra do produto'
+      .main-search-loader
 
   = link_to '#usp', class: 'scroll-call scroll-to', title: 'Rolar abaixo', data: fade_skrollr_data do
     .scroll-call-arrow

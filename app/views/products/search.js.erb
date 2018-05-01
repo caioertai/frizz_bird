@@ -1,5 +1,5 @@
-usp = document.querySelector('#product .results-content')
-usp.parentElement.style.display = 'flex'
-usp.innerHTML = "<%= j render 'search' %>"
+results = document.querySelector('#product .results-content')
+results.parentElement.removeAttribute('style')
+results.innerHTML = "<%= j render 'search' %>"
 document.scrollTo(location.href = '#product');
 document.setMainLoading(false);

@@ -1,16 +1,19 @@
+#product
+  padding-top: 4rem  
+  
 .darkruby-wrapper
   background-color: transparentize($dark-pink, 0.6)
 
 .vcentered-wrapper
   display: flex
-  min-height: 100vh
+  min-height: calc(100vh - 8rem)
   align-items: center
+  position: relative
 
 .padded
   padding: 3rem 0
 
 .circle-border
-  float: right
   border-radius: 50%
   background-color: #fff
   border: 0.5rem solid darken($pink, 6%)
@@ -20,6 +23,15 @@
   align-items: center
   justify-content: center
   flex-shrink: 0
+
+  &.small
+    border-width: 0
+    height: 1.75rem
+    width: 1.75rem
+    margin-right: 0.75rem
+
+  img
+    max-width: 71%
 
 .usp-wrapper
   min-height: 100vh

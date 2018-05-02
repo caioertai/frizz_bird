@@ -1,10 +1,10 @@
 !!!
-%html{lang: 'pt-BR'}
+%html{ lang: 'pt-BR' }
   %head
-    = tag.meta(content: "text/html; charset=UTF-8", :"http-equiv" => "Content-Type")
+    = tag.meta(content: 'text/html; charset=UTF-8', http: { equiv: 'Content-Type' })
     = tag.meta(charset: 'UTF-8')
     = tag.meta(name: 'theme-color', content: '#9D1F60')
-    = tag.meta(:content => "width=device-width, initial-scale=1, shrink-to-fit=no", :name => "viewport")
+    = tag.meta(content: 'width=device-width, initial-scale=1, shrink-to-fit=no', name: 'viewport')
     = tag.link(rel: 'manifest', href: asset_path('manifest.json'))
 
     %title Frizz Bird - Curls Best Friend
@@ -13,7 +13,8 @@
     = stylesheet_link_tag 'application', media: 'all'
     = stylesheet_link_tag 'https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:300,400'
 
-  %body
+  %body#body
+    = render 'components/topbar'
     = yield
     = javascript_include_tag 'application'
     = javascript_pack_tag 'application'

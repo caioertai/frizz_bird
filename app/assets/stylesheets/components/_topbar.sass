@@ -1,0 +1,20 @@
+/* Main topbar
+$topbar-height: 4rem
+$topbar-padding: 2rem
+  
+.topbar
+  background: transparentize($dark-pink, 0.05)
+  height: $topbar-height
+  padding: 0px $topbar-padding
+  display: flex
+  align-items: center
+  position: fixed
+  top: -$topbar-height
+  transition: top 0.25s
+  width: 100%
+  z-index: 9
+
+/* Logo
+.topbar-brand img
+  height: $topbar-height - 1rem
+  margin-right: $topbar-padding

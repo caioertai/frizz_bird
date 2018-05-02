@@ -1,4 +1,4 @@
 - suffix = suffix.present? ? suffix + '-' : ''
-= form_tag products_search_path, id: "#{suffix}product-search", class: 'search-form', method: :get, remote: true do
-  = text_field_tag :query, params[:query], id: "#{suffix}query", :'aria-label' => 'Digite nome ou código de barra do produto', class: 'main-search', placeholder: 'Digite nome ou código de barra do produto'
+= form_tag products_search_path, id: "#{suffix}product-search", class: 'search-form disable-on-loading', method: :get, remote: true do
+  = text_field_tag :query, params[:query], id: "#{suffix}query", :'aria-label' => 'Digite nome ou código de barra do produto', class: 'main-search disable-on-loading', placeholder: 'Digite nome ou código de barra do produto'
   .main-search-loader

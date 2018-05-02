@@ -21,6 +21,8 @@
 
   %body#body
     = render 'components/topbar'
+    = render 'components/flashes'
+
     = yield
     = javascript_include_tag 'application'
     = javascript_pack_tag 'application'

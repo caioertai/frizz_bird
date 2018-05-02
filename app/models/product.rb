@@ -31,4 +31,8 @@ class Product < ApplicationRecord
       ParseService.new(self, [attribute.to_sym])
     end
   end
+
+  def self.ean_not_found(ean)
+    Product.new(ean: ean)
+  end
 end

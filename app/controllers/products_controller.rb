@@ -8,12 +8,18 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
   end
 
+  def ean_not_found
+    @product = Product.ean_not_found(params[:ean])
+    render :show
+  end
+
   def search
-    if params[:query].numeric?
-      @product = Product.find_by_ean(params[:query])
-      redirect_to @product
+    query = params[:query]
+    if query.numeric?
+      @product = Product.find_by_ean(query)
+      redirect_to @product || ean_not_found_path(query)
     else
-      @items = Item.where('name ILIKE ?', "%#{params[:query]}%").order(name: :ASC)
+      @items = Item.where('name ILIKE ?', "%#{query}%").order(name: :ASC)
     end
   end
 end

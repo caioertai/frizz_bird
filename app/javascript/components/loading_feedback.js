@@ -1,19 +1,23 @@
 function loadingFeedback() {
-  const productSearchForm = document.getElementById('product-search');
-  const productSearchInput = document.getElementById('query');
-  const landing = document.getElementById('landing');
+  const mainElements = document.querySelectorAll('.disable-on-loading');
+  const formElements = document.querySelectorAll('form.disable-on-loading');
+  const body = document.getElementById('body');
 
   // Adds loading function to document
   const setMainLoading = (state) => {
     if (state) {
-      landing.classList.add('loading');
-      productSearchForm.setAttribute('disabled', '');
+      body.classList.add('loading');
       // Timeout needed to delay form disabling until parameters are sent
-      setTimeout(() => { productSearchInput.setAttribute('disabled', ''); }, 0);
+      setTimeout(() => {
+        mainElements.forEach((element) => {
+          element.setAttribute('disabled', '');
+        });
+      }, 0);
     } else {
-      landing.classList.remove('loading');
-      productSearchForm.removeAttribute('disabled');
-      productSearchInput.removeAttribute('disabled');
+      body.classList.remove('loading');
+      mainElements.forEach((element) => {
+        element.removeAttribute('disabled');
+      });
     }
   };
   document.setMainLoading = setMainLoading;
@@ -22,7 +26,9 @@ function loadingFeedback() {
   const submitTrigger = () => {
     document.setMainLoading(true);
   };
-  productSearchForm.addEventListener('submit', submitTrigger);
+  formElements.forEach((element) => {
+    element.addEventListener('submit', submitTrigger);
+  });
 }
 
 export default loadingFeedback;

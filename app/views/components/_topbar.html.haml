@@ -1,0 +1,8 @@
+- topbar_skrollr_data = { 'anchor-target' => '#product-search', '1-top-center' => 'top: -70px', 'top-center' => 'top: 0' }
+#topbar.topbar{ data: topbar_skrollr_data }
+  / Logo
+  = link_to root_path, class: 'topbar-brand' do
+    = image_tag 'logo', alt: 'Frizzbird Logo', height: '56'
+
+  / Right Navigation
+  = render 'components/product-search', suffix: 'topbar'

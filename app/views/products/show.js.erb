@@ -1,5 +1,6 @@
-results = document.querySelector('#product .results-content')
+product = document.getElementById('product')
+results = product.querySelector('.results-content')
 results.parentElement.removeAttribute('style')
 results.innerHTML = "<%= j render 'show' %>"
-document.scrollTo(location.href = '#product');
+document.smoothScrollTo(product);
 document.setMainLoading(false);

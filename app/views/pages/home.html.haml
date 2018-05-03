@@ -16,16 +16,20 @@
     = image_tag 'logo-shadow.svg', class: 'logo-shadow', data: top_skrollr_data, alt: 'Frizz Bird Shadow'
     = render 'components/product-search'
 
-  = link_to '#usp', class: 'scroll-call scroll-to', title: 'Rolar abaixo', data: fade_skrollr_data do
+  = link_to '#sp', class: 'scroll-call scroll-to', title: 'Rolar abaixo', data: fade_skrollr_data do
     .scroll-call-arrow
       
 #product
   .darkruby-wrapper.vcentered-wrapper{style: 'display: none'}
     .results-content.container.padded
 
-.usp-wrapper
-  #usp.container.padded
-    %h2 Frizz Bird
-    %p Mais informação em breve
+.sp-wrapper
+  #sp.container.padded
+    %h2
+      Descubra a composição de
+      %br/
+      shampoos e cosméticos
+    %h3 Busque e descubra de onde estiver
+    = render 'components/selling-points'
 
 = render 'components/footer'

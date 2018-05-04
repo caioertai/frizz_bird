@@ -1,8 +1,12 @@
 .search-info
-  %h2== Resultado da busca por '#{params[:query]}'
-  %ul.grid-list
-    - @items.each do |item|
-      %li
-        = link_to product_path(item.products.first), remote: true do
-          .circle-border.small= image_tag item.products.first.photo
-          = item.name
+  - if params[:query].size > 3
+    %h2== Resultado da busca por '#{params[:query]}'
+    %ul.grid-list
+      - @items.each do |item|
+        %li
+          = link_to product_path(item.products.first), remote: true do
+            .circle-border.small= image_tag item.products.first.photo
+            = item.name
+  - else
+    %h2 Busca inválida
+    %p Só aceitamos buscas com mais de 3 caracteres

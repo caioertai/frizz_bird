@@ -18,7 +18,7 @@ class ProductsController < ApplicationController
     if query.numeric?
       @product = Product.find_by_ean(query)
       redirect_to @product || ean_not_found_path(query)
-    else
+    elsif query.size > 3
       @items = Item.where('name ILIKE ?', "%#{query}%").order(name: :ASC)
     end
   end

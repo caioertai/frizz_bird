@@ -1,4 +1,9 @@
 #drawing
+  position: relative
+  top: -0.75rem
+  @include media-breakpoint-up(sm)
+    top: -2rem
+
   *
     fill: none
     stroke: #FFFFFF
@@ -32,12 +37,14 @@
     stroke-width: 7
 
 .sp-wrapper
-  // min-height: 100vh
-
   h2
     margin-top: 2rem
-    font-size: 3.5rem
+    @include media-breakpoint-up(sm)
+      font-size: 3.5rem
+    
+    
   
   h3
-    font-size: 2.5rem
     font-weight: 300
+    @include media-breakpoint-up(sm)
+      font-size: 2.5rem

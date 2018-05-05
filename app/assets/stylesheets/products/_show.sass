@@ -1,10 +1,15 @@
 .results-content
-  display: flex
   position: relative
+  display: block
+
+  @include media-breakpoint-up(md)
+    display: flex
+    align-items: flex-start
 
   h2
-    font-size: 2.5rem
     font-weight: 500
+    @include media-breakpoint-up(md)
+      font-size: 2.5rem
 
   small
     font-size: 70%
@@ -17,19 +22,56 @@
     li
       margin-right: 3rem
 
+.circle-border
+  position: relative
+  z-index: 1
+  margin: 0 auto
+  max-width: 12.5rem
+  flex: 1 0 1.75rem
+
+  &:after
+    border-radius: 50%
+    background-color: #fff
+    border: 0.5rem solid #831a50
+    content: ''
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    position: absolute
+    z-index: -1
+
+  &.small
+    border-width: 0
+    max-height: 1.75rem
+    max-width: 1.75rem
+    margin-right: 0.75rem
+  
+    &:after
+      border: none
+
+  img
+    max-height: 100%
+    max-width: 100%
+    padding: 10%
+    border-radius: 100%
+
 .product-info
-  margin-left: 3rem
   padding-top: 2rem
   flex-grow: 1
+
+  @include media-breakpoint-up(md)
+    margin-left: 3rem
 
 .search-info
   flex-grow: 1
 
+  .search-product-name
+    flex-grow: 1
+
   a
     display: flex
-    align-items: center
     padding: 0.5rem
-    margin-right: 1rem
 
   a:hover
     background-color: rgba(0, 0, 0, 0.15)
@@ -38,7 +80,7 @@
   
 .grid-list
   display: grid
-  grid-template-columns: repeat(auto-fit, minmax(381px, 1fr))
+  grid-template-columns: repeat(auto-fit, minmax(288px, 1fr))
   padding-left: 0
   margin-bottom: 0
   list-style-type: none

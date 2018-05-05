@@ -1,7 +1,7 @@
 function loadingFeedback() {
   const mainElements = document.querySelectorAll('.disable-on-loading');
   const formElements = document.querySelectorAll('form.disable-on-loading');
-  const body = document.getElementById('body');
+  const body = document.querySelector('body');
 
   // Adds loading function to document
   const setMainLoading = (state) => {

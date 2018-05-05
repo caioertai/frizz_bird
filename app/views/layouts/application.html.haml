@@ -19,10 +19,10 @@
     = stylesheet_link_tag 'application', media: 'all'
     = stylesheet_link_tag 'https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:300,400'
 
-  %body#body
+  %body#skrollr-body
     = render 'components/topbar'
     = render 'components/flashes'
-
     = yield
+
     = javascript_include_tag 'application'
     = javascript_pack_tag 'application'

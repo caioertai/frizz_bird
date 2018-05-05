@@ -1,10 +1,10 @@
 !!!
 %html{ lang: 'pt-BR' }
   %head
-    = tag.meta(content: 'text/html; charset=UTF-8', http: { equiv: 'Content-Type' })
     = tag.meta(charset: 'UTF-8')
+    = tag.meta(:'http-equiv' => 'Content-Type', content: 'text/html; charset=UTF-8')
     = tag.meta(name: 'theme-color', content: '#9D1F60')
-    = tag.meta(content: 'width=device-width, initial-scale=1, shrink-to-fit=no', name: 'viewport')
+    = tag.meta(name: 'viewport', content: 'width=device-width, initial-scale=1, shrink-to-fit=no')
     = tag.link(rel: 'manifest', href: asset_path('manifest.json'))
 
     = tag.meta(property: 'og:title', content: 'Frizzbird')

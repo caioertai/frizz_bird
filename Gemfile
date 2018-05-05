@@ -23,6 +23,7 @@ gem 'carrierwave', '~> 1.2'
 gem 'cloudinary'
 gem 'haml-rails'
 gem 'money-rails', '~> 1.11.0'
+gem 'serviceworker-rails'
 
 group :development do
   gem 'web-console', '>= 3.3.0'

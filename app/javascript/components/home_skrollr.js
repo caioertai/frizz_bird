@@ -1,12 +1,8 @@
-import 'skrollr';
+import * as skrollr from 'skrollr';
 
 function homeSkrollr() {
-  const landing = document.getElementById('landing');
-  if (landing) {
-    require(['skrollr'], (skrollr) => {
-      const s = skrollr.init();
-    });
-  }
+  document.skrollrInit = skrollr.init;
+  document.skrollrDestroy = skrollr.init().destroy;
 }
 
 export default homeSkrollr;

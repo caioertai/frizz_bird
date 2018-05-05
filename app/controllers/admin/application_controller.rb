@@ -10,11 +10,7 @@
 module Admin
   # app/controllers/admin/application_controller.rb
   class ApplicationController < Administrate::ApplicationController
-    before_action :authenticate_admin
-
-    def authenticate_admin
-      # TODO: Add authentication logic here.
-    end
+    before_action :authenticate_user_admin!
 
     # Override this value to specify the number of elements to display at a time
     # on index pages. Defaults to 20.

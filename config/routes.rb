@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  devise_for :user_admins
   root to: 'pages#home'
 
   get 'products/search', to: 'products#search', as: :products_search

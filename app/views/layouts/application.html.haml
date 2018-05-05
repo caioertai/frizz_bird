@@ -13,7 +13,9 @@
     = tag.meta(property: 'og:image', content: asset_path('frizzbird-og.png'))
     = tag.meta(property: 'og:locale', content: 'pt_BR')
 
-    %title Frizz Bird - Curls Best Friend
+    = tag.title('Frizz Bird - Curls Best Friend')
+    = tag.meta(name: 'description', content: 'Descubra a composição de shampoos e outros produtos para cabelo')
+
     = csrf_meta_tags
     = action_cable_meta_tag
     = stylesheet_link_tag 'application', media: 'all'

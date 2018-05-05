@@ -1,0 +1,20 @@
+<% icon_sizes = Rails.configuration.serviceworker.icon_sizes %>
+{
+  "name": "Frizz Bird",
+  "short_name": "FrizzBird",
+  "description": "Saiba os produtos liberados para o seu cabelo.",
+  "start_url": "/",
+  "icons": [
+  <% icon_sizes.map { |s| "#{s}x#{s}" }.each.with_index do |dim, i| %>
+    {
+      "src": "<%= image_path "icons/frizzbird-#{dim}.png" %>",
+      "sizes": "<%= dim %>",
+      "type": "image/png"
+    }<%= i == (icon_sizes.length - 1) ? '' : ',' %>
+  <% end %>
+  ],
+  "theme_color": "#9D1F60",
+  "background_color": "#9D1F60",
+  "display": "fullscreen",
+  "orientation": "portrait"
+}

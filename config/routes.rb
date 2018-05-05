@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     resources :items
     resources :products
     resources :item_ingredients
+    resources :user_admins
 
     root to: 'products#index'
   end

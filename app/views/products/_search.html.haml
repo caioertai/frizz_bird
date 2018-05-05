@@ -6,7 +6,7 @@
         %li
           = link_to product_path(item.products.first), remote: true do
             .circle-border.small= image_tag item.products.first.photo
-            = item.name
+            .search-product-name= item.name
   - else
     %h2 Busca inválida
     %p Só aceitamos buscas com mais de 3 caracteres

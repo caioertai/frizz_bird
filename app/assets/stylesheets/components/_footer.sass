@@ -1,11 +1,13 @@
 .footer
-  background: darken($dark-pink, 5%)
+  border-top: 0.0625rem darken($dark-pink, 5%) solid
   display: flex
   align-items: center
   justify-content: space-between
   height: 100px
-  padding: 0px 50px
   color: rgba(255, 255, 255, 0.65)
+  padding: 0 1rem
+  @include media-breakpoint-up(sm)
+    padding: 0 2rem
 
 .footer-links
   display: flex
@@ -19,4 +21,3 @@
     padding: 0px 10px
     &:hover
       opacity: 1
-

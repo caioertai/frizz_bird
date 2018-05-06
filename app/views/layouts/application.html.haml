@@ -4,13 +4,20 @@
     = tag.meta(:'http-equiv' => 'Content-Type', content: 'text/html; charset=UTF-8')
     = tag.meta(name: 'theme-color', content: '#9D1F60')
     = tag.meta(name: 'viewport', content: 'width=device-width, initial-scale=1, shrink-to-fit=no')
-    = tag.link(rel: 'manifest', href: asset_path('manifest.json'))
-
+    
     = tag.meta(property: 'og:title', content: 'Frizzbird')
     = tag.meta(property: 'og:description', content: 'Descubra produtos liberados para low poo e no poo.')
     = tag.meta(property: 'og:url', content: 'http://frizzbird.herokuapp.com')
     = tag.meta(property: 'og:image', content: asset_path('frizzbird-og.png'))
     = tag.meta(property: 'og:locale', content: 'pt_BR')
+    
+    -# Apple tags
+    = tag.link(rel: 'manifest', href: asset_path('manifest.json'))
+    = tag.link(rel: 'apple-touch-icon', href: asset_path('icons/frizzbird-96x96.png'))
+    = tag.link(rel: 'apple-touch-icon', sizes: '152x152', href: asset_path('icons/frizzbird-152x152.png'))
+    = tag.link(rel: 'apple-touch-icon', sizes: '180x180', href: asset_path('icons/frizzbird-180x180.png'))
+    = tag.link(rel: 'apple-touch-icon', sizes: '192x192', href: asset_path('icons/frizzbird-192x192.png'))
+    = tag.meta(name: 'apple-mobile-web-app-status-bar-style', content: 'black-translucent')
 
     = tag.title('Frizz Bird - Curls Best Friend')
     = tag.meta(name: 'description', content: 'Descubra a composição de shampoos e outros produtos para cabelo')

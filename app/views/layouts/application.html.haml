@@ -1,39 +1,7 @@
 !!!
 %html{ lang: 'pt-BR' }
   %head
-    = tag.meta(:'http-equiv' => 'Content-Type', content: 'text/html; charset=UTF-8')
-    = tag.meta(name: 'theme-color', content: '#9D1F60')
-    = tag.meta(name: 'viewport', content: 'width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no')
-    
-    = tag.meta(property: 'og:title', content: 'Frizzbird')
-    = tag.meta(property: 'og:description', content: 'Descubra a composição de shampoos e outros produtos para cabelo. Busque pelo código de barra e encontre os ingredientes de produtos capilares.')
-    = tag.meta(property: 'og:url', content: 'http://frizzbird.herokuapp.com')
-    = tag.meta(property: 'og:image', content: asset_path('frizzbird-og.png'))
-    = tag.meta(property: 'og:locale', content: 'pt_BR')
-    
-    -# Apple tags
-    = tag.meta(name: 'apple-mobile-web-app-status-bar-style', content: 'black-translucent')
-    = tag.meta(name: 'apple-mobile-web-app-capable', content: 'yes')
-    = tag.meta(name: 'apple-mobile-web-app-title', content: 'FrizzBird')
-    -# Icons
-    = tag.link(rel: 'manifest', href: asset_path('manifest.json'))
-    = tag.link(rel: 'apple-touch-icon', href: asset_path('icons/frizzbird-96x96.png'))
-    = tag.link(rel: 'apple-touch-icon', sizes: '152x152', href: asset_path('icons/frizzbird-152x152.png'))
-    = tag.link(rel: 'apple-touch-icon', sizes: '180x180', href: asset_path('icons/frizzbird-180x180.png'))
-    = tag.link(rel: 'apple-touch-icon', sizes: '192x192', href: asset_path('icons/frizzbird-192x192.png'))
-    -# Splashes
-    = tag.link(rel: "apple-touch-startup-image", href: asset_path('splashes/splash-1x-768x1024.png' ), media: "(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 1) and (orientation: portrait)")
-    = tag.link(rel: "apple-touch-startup-image", href: asset_path('splashes/splash-2x-640x1136.png' ), media: "(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)")
-    = tag.link(rel: "apple-touch-startup-image", href: asset_path('splashes/splash-2x-750x1334.png' ), media: "(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)")
-    = tag.link(rel: "apple-touch-startup-image", href: asset_path('splashes/splash-2x-1536x2008.png'), media: "(min-device-width: 768px) and (max-device-width: 1004px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait)")
-    = tag.link(rel: "apple-touch-startup-image", href: asset_path('splashes/splash-2x-1536x2048.png'), media: "(min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait)")
-    = tag.link(rel: "apple-touch-startup-image", href: asset_path('splashes/splash-3x-1242x2208.png'), media: "(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)")  
-
-    = tag.title('Frizz Bird - Curls Best Friend')
-    = tag.meta(name: 'description', content: 'Descubra a composição de shampoos e outros produtos para cabelo. Busque pelo código de barra e encontre os ingredientes de produtos capilares.')
-
-    = csrf_meta_tags
-    = action_cable_meta_tag
+    = render 'shared/head'
     = stylesheet_link_tag 'application', media: 'all'
     = stylesheet_link_tag 'https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:300,400'
 

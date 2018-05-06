@@ -1,6 +1,1 @@
-product = document.getElementById('product')
-results = product.querySelector('.results-content')
-results.parentElement.removeAttribute('style')
-results.innerHTML = "<%= j render 'search' %>"
-document.smoothScrollTo(product);
-document.setMainLoading(false);
+<%= render 'action-load' %>

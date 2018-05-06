@@ -17,11 +17,15 @@
     = image_tag 'logo-shadow.svg', class: 'logo-shadow', data: top_skrollr_data, alt: 'Frizz Bird Shadow'
     = render 'components/product-search'
 
-  = link_to '#sp', class: 'scroll-call scroll-to', title: 'Rolar abaixo', data: fade_skrollr_data do
+  = link_to '/#sp', class: 'scroll-call scroll-to', title: 'Rolar abaixo', data: fade_skrollr_data do
     .scroll-call-arrow
 
-#product
-  .darkruby-wrapper.vcentered-wrapper{style: 'display: none'}
+#search.content.d-none
+  .darkruby-wrapper.vcentered-wrapper
+    .results-content.container.padded
+
+#show.content.d-none
+  .darkruby-wrapper.vcentered-wrapper
     .results-content.container.padded
 
 .sp-wrapper

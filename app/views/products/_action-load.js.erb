@@ -1,0 +1,8 @@
+document.querySelectorAll('.content').forEach((element) => { element.classList.add('d-none'); });
+actionName = '<%= action_name %>';
+actionElement = document.getElementById(actionName);
+actionElement.classList.remove('d-none');
+actionElement.querySelector('.results-content').innerHTML = "<%= j render action_name %>";
+document.smoothScrollTo(actionElement);
+history.pushState({ page: actionName }, 'FrizzBird', `/#${actionName}`);
+document.setMainLoading(false);

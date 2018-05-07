@@ -11,6 +11,7 @@ function popstate() {
     if (actionName) {
       // Checks content and gets if empty
       const actionElement = document.getElementById(actionName);
+      // TODO: Make it work by detecting ids or different search queries
       if (actionElement.querySelector('.container').innerHTML === '') {
         const fullPath = window.location.pathname + window.location.search;
         document.setMainLoading(true);

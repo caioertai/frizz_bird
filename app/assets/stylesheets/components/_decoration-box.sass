@@ -6,6 +6,9 @@
   align-items: center
   justify-content: center
 
+  svg
+    overflow: visible
+
   .bangs
     position: absolute
     top: 0
@@ -16,6 +19,7 @@
       right: 0
 
   .frizz
+    fill: #F69220
     position: absolute
     top: 2rem
     width: 24rem
@@ -25,12 +29,13 @@
       right: 2rem
 
   .frizz-shadow
+    fill: #000000
     position: absolute
     top: -5rem
-    width: 40rem
+    width: 36rem
     left: 2rem
 
-    img
+    g
       opacity: 0.05
 
     &.inverted
@@ -48,10 +53,12 @@
     top: -3vh
 
   .logo
+    fill: #F69220
     max-width: 90%
     margin-bottom: $spacer
 
   .logo-shadow
+    fill: #000000
     position: absolute
     width: 120%
     top: 0

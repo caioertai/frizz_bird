@@ -1,0 +1,19 @@
+actionName = '<%= action_name %>';
+actionElement = document.getElementById(actionName);
+actionElement.querySelector('.results-content').innerHTML = "<%= j render action_name %>";
+query = '<%= request.parameters[:query] %>';
+
+requestPath = '<%= request.path %>';
+queryStr = '?query=' + query;
+newPath = `${requestPath}${query ? queryStr : ''}#${actionName}`
+
+console.log(window.location.pathname);
+console.log('<%= request.path %>')
+
+if (requestPath !== window.location.pathname) {
+  <%# Only pushes state if request wasn't made via popstate event %>
+  history.pushState({ action: actionName }, 'FrizzBird', newPath);
+}
+
+document.setMainLoading(false);
+document.goTo(actionName);

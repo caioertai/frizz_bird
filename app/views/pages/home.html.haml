@@ -1,3 +1,9 @@
+- unless controller_name == 'pages'
+  - content_for :javascript do
+    = javascript_tag do
+      -# == window.location = '##{action_name}';
+      == document.smoothScrollTo(document.getElementById('#{action_name}'));
+
 - left_skrollr_data = { '0' => 'opacity: 1; top: 0px; left: 0px', '500' => 'opacity: 0; top: -200px; left: -300px' }
 - right_skrollr_data = { '0' => 'opacity: 1; top: 0px; right: 0px', '500' => 'opacity: 0; top: -200px; right: -300px' }
 - top_skrollr_data = { '0' => 'opacity: 0.05; top: 0px; transform: scale(1)', '500' => 'opacity: 0.02; top: -200px; transform: scale(1.5)' }
@@ -17,12 +23,15 @@
     = image_tag 'logo-shadow.svg', class: 'logo-shadow', data: top_skrollr_data, alt: 'Frizz Bird Shadow'
     = render 'components/product-search'
 
-  = link_to '#sp', class: 'scroll-call scroll-to', title: 'Rolar abaixo', data: fade_skrollr_data do
+  = link_to '/#sp', class: 'scroll-call scroll-to', title: 'Rolar abaixo', data: fade_skrollr_data do
     .scroll-call-arrow
 
-#product
-  .darkruby-wrapper.vcentered-wrapper{style: 'display: none'}
-    .results-content.container.padded
+#search.content{ class: @items ? '' : 'd-none' }
+  .darkruby-wrapper.vcentered-wrapper
+    .results-content.container.padded= render 'products/search' if @items
+#show.content{ class: @product ? '' : 'd-none' }
+  .darkruby-wrapper.vcentered-wrapper
+    .results-content.container.padded= render 'products/show' if @product
 
 .sp-wrapper
   #sp.container.padded

@@ -13,8 +13,11 @@ class ProductsController < ApplicationController
   end
 
   def ean_not_found
-    @product = Product.ean_not_found(params[:ean])
-    render :show
+    @not_found = Product.ean_not_found(params[:ean])
+    respond_to do |format|
+      format.js
+      format.html { render 'pages/home' }
+    end
   end
 
   def search

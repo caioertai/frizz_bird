@@ -32,6 +32,9 @@
 #show.content{ class: @product ? '' : 'd-none' }
   .darkruby-wrapper.vcentered-wrapper
     .results-content.container.padded= render 'products/show' if @product
+#ean_not_found.content{ class: @product ? '' : 'd-none' }
+  .darkruby-wrapper.vcentered-wrapper
+    .results-content.container.padded= render 'products/ean_not_found' if @not_found
 
 .sp-wrapper
   #sp.container.padded

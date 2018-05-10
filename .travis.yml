@@ -1,0 +1,7 @@
+language: ruby
+rvm:
+  - 2.4.3
+services:
+  - postgresql
+before_script:
+  - psql -c 'create database frizz_bird_test;' -U postgres

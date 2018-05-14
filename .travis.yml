@@ -1,7 +1,14 @@
 language: ruby
 rvm:
-  - 2.4.3
+- 2.4.3
 services:
-  - postgresql
+- postgresql
 before_script:
-  - psql -c 'create database frizz_bird_test;' -U postgres
+- psql -c 'create database frizz_bird_test;' -U postgres
+deploy:
+  provider: heroku
+  api_key:
+    secure: TWSy2XiecY6Xeid4TGSGf8IW6Z1Pi7WUrIU4oqFzEcJj6X9th+BTTWsn7Qt+4PS1C7iutl4iOAPzbaHIVQljfZhPoiF97vcOWFFdpTMstT2UcgQf80h1Vx1N4hPpwxhpJSDXq89M2W+VTCfN8cWmmq0mn9kv+VhBYAbg2zDyWdwGCgmsPorvTrG/BouW480yrpncqAUJ1oeCstEeMBqrTIuB6V6g9XZL6Qt8cqySLsdrLp/j+D6E1myc1qh/8TXPp6MDsm5WgheXPZ47AuEb4kwum12iwjZaEGBVQOei6hsFN3hxPSgsskcmHipt6JipSGd4nQJqmd44lwvaiqNiQT565hco4upEZ4xDnBnjD9m0uhBEKPNhdHXiYU/wvTPJwl+Qk15xQu32sQ1V8ZM0sWEdlpA3QGldvk+ygZIRIAxO1q0XkNoyW/bHz8qFQ6NOzo7ddeo12iiKuveZK/4/V1G++QN6A/9ZsiMedAdXewtN/25enHkJ/fwDWUd2wMSvwc8EsJjA6wVxIE0puguEE+MTjhspM4/tbbArLzff1wzVAgbDpK6oyJjed9OUhOSGk6iwjms9+3TZtIUkfVuGtUcH6BEE9jwzVw0Eom7nzrh2Tx6rQ1ZhPvbjefbaONj5fQXIKpVay1ntHZspCixkx7kRjAIhdZrLG4Df2TKivlg=
+  app: frizzbird
+  on:
+    repo: caioertai/frizz_bird

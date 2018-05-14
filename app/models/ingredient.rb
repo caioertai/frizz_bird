@@ -11,6 +11,10 @@ class Ingredient < ApplicationRecord
 
   has_many :products, through: :items
 
+  def translate_name
+    update(translated_name: EasyTranslate.translate(name, to: 'en'))
+  end
+
   def parse_alias
     IngredientService.new(self)
   end

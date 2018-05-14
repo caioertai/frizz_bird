@@ -59,4 +59,7 @@ Rails.application.configure do
     Bullet.enable = true
     Bullet.rails_logger = true
   end
+
+  # Google Translate API Key
+  EasyTranslate.api_key = ENV['GOOGLE_TRANSLATE_API_KEY']
 end

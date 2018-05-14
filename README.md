@@ -1,4 +1,4 @@
-# [FrizzBird](https://frizzbird.herokuapp.com) [![Build Status](https://travis-ci.org/caioertai/frizz_bird.svg?branch=master)](https://travis-ci.org/caioertai/frizz_bird)
+# [FrizzBird](https://frizzbird.herokuapp.com) [![Build Status](https://travis-ci.org/caioertai/frizz_bird.svg?branch=master)](https://travis-ci.org/caioertai/frizz_bird) [![Maintainability](https://api.codeclimate.com/v1/badges/0971eccee3180ee387c7/maintainability)](https://codeclimate.com/github/caioertai/frizz_bird/maintainability)
 
 FrizzBird finds info on hair products and their ingredients in order help consumers decide which fits their needs.
 

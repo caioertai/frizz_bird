@@ -11,14 +11,8 @@ class Ingredient < ApplicationRecord
 
   has_many :products, through: :items
 
-  after_save :refresh_alias, if: :alias_id_changed?
-
-  def refresh_alias
-    # TODO: Make this a sql query
-    ordered_list = self.alias.ingredients.sort_by do |ingredient|
-      -ingredient.products.count
-    end
-    self.alias.update(name: ordered_list.first.name)
+  def parse_alias
+    IngredientService.new(self)
   end
 
   def self.find_or_create_by_name(name)

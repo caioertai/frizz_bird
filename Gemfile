@@ -26,6 +26,7 @@ gem 'money-rails', '~> 1.11.0'
 gem 'serviceworker-rails'
 
 group :development do
+  gem 'bullet'
   gem 'web-console', '>= 3.3.0'
 end
 

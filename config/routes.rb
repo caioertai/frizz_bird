@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :ingredients
+    resources :aliases
     resources :items
     resources :products
     resources :item_ingredients

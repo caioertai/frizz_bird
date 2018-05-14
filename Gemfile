@@ -25,6 +25,8 @@ gem 'haml-rails'
 gem 'money-rails', '~> 1.11.0'
 gem 'serviceworker-rails'
 
+gem 'easy_translate'
+
 group :development do
   gem 'bullet'
   gem 'web-console', '>= 3.3.0'

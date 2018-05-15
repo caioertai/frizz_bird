@@ -13,6 +13,7 @@ class IngredientDashboard < Administrate::BaseDashboard
     items: Field::HasMany,
     id: Field::Number,
     name: Field::String,
+    translated_name: Field::String,
     created_at: Field::DateTime,
     updated_at: Field::DateTime
   }.freeze
@@ -25,6 +26,7 @@ class IngredientDashboard < Administrate::BaseDashboard
   COLLECTION_ATTRIBUTES = %i[
     id
     name
+    translated_name
     items
   ].freeze
 
@@ -32,6 +34,7 @@ class IngredientDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = %i[
     name
+    translated_name
     items
     id
     created_at
@@ -43,6 +46,7 @@ class IngredientDashboard < Administrate::BaseDashboard
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = %i[
     items
+    translated_name
     name
   ].freeze
 

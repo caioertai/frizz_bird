@@ -25,6 +25,8 @@ gem 'haml-rails'
 gem 'money-rails', '~> 1.11.0'
 gem 'serviceworker-rails'
 
+gem 'google-analytics-rails', '1.1.1'
+
 group :development do
   gem 'bullet'
   gem 'web-console', '>= 3.3.0'

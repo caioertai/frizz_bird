@@ -29,5 +29,7 @@
 = tag.title('Frizz Bird - Curls Best Friend')
 = tag.meta(name: 'description', content: 'Descubra a composição de shampoos e outros produtos para cabelo. Busque pelo código de barra e encontre os ingredientes de produtos capilares.')
 
+= analytics_init if GoogleAnalytics.valid_tracker?
+
 = csrf_meta_tags
 = action_cable_meta_tag

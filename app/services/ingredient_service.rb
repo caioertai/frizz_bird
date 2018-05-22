@@ -4,8 +4,9 @@
 class IngredientService
   def initialize(ingredient)
     @ingredient = ingredient
-    search_ingredient
-    save_alias unless @ingredient_path.nil?
+    @alias_cid = fetch_cid
+    @ingredient.update(searched_at: Time.now)
+    update_ingredient_alias if @alias_cid.present?
   end
 
   def self.call
@@ -19,34 +20,26 @@ class IngredientService
 
   private
 
-  def get_page(url)
-    request = HTTParty.get(url)
-    Nokogiri::HTML(request, nil, Encoding::UTF_8.to_s)
+  def fetch_cid
+    doc = HTTParty.get(search_url)
+
+    # If search didn't redirect straight to compound page
+    if doc.request.redirect.nil?
+      first_result = %(//*[@id="maincontent"]/div/div[5]/div[1]/div[2]/div/div[2]/div/dl/dd)
+      Nokogiri::HTML(doc, nil, Encoding::UTF_8.to_s).xpath(first_result)&.text
+    else
+      doc.request.path.to_s[/\d+/]
+    end
   end
 
-  def search_ingredient
-    doc = get_page(search_url).at('#table-browse [align=left] a')
-    @ingredient_path = doc['href'] unless doc.nil?
-    @ingredient.update(searched_at: Time.now)
-  end
-
-  def save_alias
-    doc = get_page(ingredient_url)
-    ingredient_alias = Alias.find_or_create_by(name: doc.at('h1').text)
+  def update_ingredient_alias
+    ingredient_alias = Alias.find_or_create_by(cid: @alias_cid)
     @ingredient.update(alias: ingredient_alias)
 
-    return if ingredient_alias.document.present?
-    ingredient_alias.update(
-      document: doc,
-      synonyms: doc.at('#Summary').at("strong:contains('Synonym')").next.text[1..-1]
-    )
-  end
-
-  def ingredient_url
-    "#{ENV['ing_source']}#{@ingredient_path}"
+    ingredient_alias.fetch_info if ingredient_alias.document.nil?
   end
 
   def search_url
-    "#{ENV['ing_source']}/skindeep/search.php?query=#{@ingredient.name}&search_group=ingredients"
+    "#{ENV['ing_source']}/pccompound/?term=#{@ingredient.name}"
   end
 end

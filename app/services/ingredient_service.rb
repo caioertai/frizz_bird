@@ -22,13 +22,18 @@ class IngredientService
 
   def fetch_cid
     doc = HTTParty.get(search_url)
+    doc_request = doc.request
 
     # If search didn't redirect straight to compound page
-    if doc.request.redirect.nil?
-      first_result = %(//*[@id="maincontent"]/div/div[5]/div[1]/div[2]/div/div[2]/div/dl/dd)
-      Nokogiri::HTML(doc, nil, Encoding::UTF_8.to_s).xpath(first_result)&.text
+    if doc_request.redirect.nil?
+      doc = Nokogiri::HTML(doc, nil, Encoding::UTF_8.to_s)
+      return nil unless doc.at('#msgportlet').nil? # nil if has no results alert
+      doc.xpath(
+        # First result xpath
+        '//*[@id="maincontent"]/div/div[5]/div[1]/div[2]/div/div[2]/div/dl/dd'
+      )&.text
     else
-      doc.request.path.to_s[/\d+/]
+      doc_request.path.to_s[/\d+/]
     end
   end
 
@@ -40,6 +45,6 @@ class IngredientService
   end
 
   def search_url
-    "#{ENV['ing_source']}/pccompound/?term=#{@ingredient.name}"
+    "#{ENV['ing_source']}/pccompound/?term=#{@ingredient.translated_name.parameterize}"
   end
 end

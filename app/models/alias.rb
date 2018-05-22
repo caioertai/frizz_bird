@@ -3,6 +3,7 @@
 # app/models/alias.rb
 class Alias < ApplicationRecord
   has_many :ingredients
+  has_many :products, through: :ingredients
 
   validates :cid, uniqueness: true, presence: true
 

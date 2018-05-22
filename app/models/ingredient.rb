@@ -11,6 +11,8 @@ class Ingredient < ApplicationRecord
 
   has_many :products, through: :items
 
+  scope :unsearched, -> { where(searched_at: nil) }
+
   def translate_name
     update(translated_name: EasyTranslate.translate(name, to: 'en'))
   end

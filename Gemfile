@@ -26,6 +26,7 @@ gem 'money-rails', '~> 1.11.0'
 gem 'serviceworker-rails'
 
 gem 'easy_translate'
+gem 'google-analytics-rails', '1.1.1'
 
 group :development do
   gem 'bullet'

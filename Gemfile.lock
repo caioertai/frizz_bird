@@ -97,6 +97,7 @@ GEM
       sass (>= 3.2)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
+    google-analytics-rails (1.1.1)
     haml (5.0.4)
       temple (>= 0.8.0)
       tilt
@@ -294,6 +295,7 @@ DEPENDENCIES
   easy_translate
   figaro
   font-awesome-sass (~> 5.0.9)
+  google-analytics-rails (= 1.1.1)
   haml-rails
   httparty
   jbuilder (~> 2.0)

@@ -4,9 +4,9 @@
       -# == window.location = '##{action_name}';
       == document.smoothScrollTo(document.getElementById('#{action_name}'));
 
-- left_skrollr_data = { '0' => 'opacity: 1; top: 0px; left: 0px', '500' => 'opacity: 0; top: -200px; left: -300px' }
-- right_skrollr_data = { '0' => 'opacity: 1; top: 0px; right: 0px', '500' => 'opacity: 0; top: -200px; right: -300px' }
-- top_skrollr_data = { '0' => 'opacity: 0.05; top: 0px; transform: scale(1)', '500' => 'opacity: 0.02; top: -200px; transform: scale(1.5)' }
+- left_skrollr_data = { '0' => 'opacity: 1; transform: translate(0px, 0px)', '500' => 'opacity: 0; transform: translate(-300px, -200px)' }
+- right_skrollr_data = { '0' => 'opacity: 1; transform: translate(0px, 0px) rotateY(180deg)', '500' => 'opacity: 0; transform: translate(300px, -200px) rotateY(180deg)' }
+- top_skrollr_data = { '0' => 'opacity: 0.05; transform: translateY(0px) scale(1)', '500' => 'opacity: 0.02; transform: translateY(-200px) scale(1.5)' }
 - fade_skrollr_data = { '0' => 'opacity: 1', '50' => 'opacity: 0; display: block', '51' => 'display: none' }
 
 #landing.decorations-box
